@@ -41,3 +41,16 @@ plt.xlabel("Interatomic Distance Between Ar (angstroms)")
 plt.ylabel("Potential Energy V(r)")
 plt.title("Lennard-Jones Potential for Argon Dimer")
 plt.show()
+
+#Make XYZ file
+atoms = [
+        ("Ar", 0.0000, 0.0000),
+        ("Ar", minimized_LJ, 0.0000)
+    ]
+
+with open("argondimer.xyz", 'w') as xyz_file:
+    xyz_file.write(f"3\n")
+    xyz_file.write(f"Argon dimer\n")
+    for atom, x, y in atoms:
+        xyz_file.write(f"{atom} {x:.4f} {y:.4f}\n")
+
